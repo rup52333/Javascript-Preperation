@@ -134,5 +134,188 @@
 //print 4,10,6,8,14 undefined 4,10,6,8,14
 
 
+// ****Hoisting in JavaScript
+//Function Hoisting :- it gives reference error because of local scope
+
+// sayHello()
+// giveAnswer()
+
+// function sayHello(){
+// console.log('How Are You?');
+
+// function giveAnswer(){
+// console.log('I am fine,what is about you?');
+
+// }
+
+
+// }
+
+//it gives proper result
+// sayHello()
+
+
+// function sayHello(){
+// console.log('How Are You?');
+// giveAnswer()
+
+// function giveAnswer(){
+// console.log('I am fine,what is about you?');
+
+// }
+
+
+// }
+
+// Hoisting var variables
+
+
+
+// console.log(name)
+// // undefined
+
+// var name = "Rup"
+// //If the interpreter did not know, you would get name is not defined. 
+// console.log(myname);
+// //We get the name is not defined error when we try to access name. The interpreter "does not know" about this variable
+
+
+
+// function isPrime(number) {
+//     if (number < 2) {
+//         return false;
+//     }
+//     for (let i = 2; i <= Math.sqrt(number); i++) {
+//         if (number % i === 0) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
+// function printPrimesUpTo(limit) {
+//     for (let i = 2; i <= limit; i++) {
+//         if (isPrime(i)) {
+//             console.log(i);
+//         }
+//     }
+// }
+
+// // Example: Print prime numbers up to 20
+// printPrimesUpTo(20);
+// Function to perform calculations
+// const readline = require('readline');
+
+// // Function to perform calculations
+// function calculate(operator, num1, num2) {
+//     switch (operator) {
+//         case '+':
+//             return num1 + num2;
+//         case '-':
+//             return num1 - num2;
+//         case '*':
+//             return num1 * num2;
+//         case '/':
+//             // Check if dividing by zero
+//             if (num2 !== 0) {
+//                 return num1 / num2;
+//             } else {
+//                 return "Cannot divide by zero";
+//             }
+//         default:
+//             return "Invalid operator";
+//     }
+// }
+
+// // Create an interface for reading input
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
+
+
+// rl.question("Enter operator (+, -, *, /): ", (operator) => {
+//     rl.question("Enter first number: ", (num1) => {
+//         rl.question("Enter second number: ", (num2) => {
+//             // Convert input to numbers
+//             num1 = parseFloat(num1);
+//             num2 = parseFloat(num2);
+
+//             let result = calculate(operator, num1, num2);
+//             console.log(`Result: ${result}`);
+
+//             // Close the interface
+//             rl.close();
+//         });
+//     });
+// });
+
+// this Keyword
+
+//valure of this keyword in javaScript in a globalscope and localscopewith non strict mode window object or in non strict modev it will be undefined when in local scope
+
+ //Global Context:
+
+   // If this is used in a regular function that is not a method of an object, and it's not inside another function (like a callback), it refers to the global object (in a browser environment, it's usually window).
+
+
+// function add() {
+//     console.log(this);
+// }
+
+
+// add();
+
+// Method Context:
+
+//     When a function is a method of an object, this refers to the object that the method is called on.
+
+// const obj={
+//     a:10,
+//     add: function () {
+//         console.log(this);
+//     }
+
+// }
+
+
+// obj.add()
+
+
+
+// Constructor Context:
+
+//     When a function is used as a constructor with the new keyword, this refers to the newly created instance
+
+
+// function student(name,roll) {
+//     this.name=name
+//     this.roll=roll
+    
+// }
+
+// const newStudent=new student('rup',24);
+// console.log(newStudent.name +" "+newStudent.roll);
+// Arrow Functions:
+
+//     Arrow functions do not have their own this context. They inherit this from the enclosing scope (lexical scoping).
+
+// const arrowFunction = () => {
+//     console.log(this);
+//   };
+  
+//   arrowFunction(); // 'this' refers to the enclosing scope (e.g., the global object)
+  
+
+
+
+
+
+
+ 
+
+
+
+
 
 
