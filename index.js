@@ -307,15 +307,77 @@
 //   arrowFunction(); // 'this' refers to the enclosing scope (e.g., the global object)
   
 
+// ***Promise
+
+// let promise=new Promise((resolve,reject)=>{
+// resolve("I am resolved ")
+
+// }).then((x)=>{
+// console.log(x)
+
+// }).catch((error)=>{
+//     console.log(error);
+// })
+
+// const promise1=new Promise((resolve,reject)=>
+// {
+// //async task
+// //DB calls,network
+
+// setTimeout(() => {
+//    resolve("Async task is complete");
+// }, 10000);
+
+
+// }
+// ).then((res)=>console.log(res))
+
+
+
+// const promise2=new Promise((resolve,reject)=>{
+//    setTimeout(() => {
+//     throw new Error("Please check ")
+//    }, 10000);
+
+// }).then((res)=>console.log(res)).catch((error)=>console.log(error))
+
+// const delay = (milliseconds) => {
+//     return new Promise((resolve) => {
+//       setTimeout(() => {
+//         resolve(`Delayed for ${milliseconds} ms`);
+//       }, milliseconds);
+//     });
+//   };
+  
+//   delay(2000)
+//     .then((message) => {
+//       console.log(message);
+//       return delay(1500);
+//     })
+//     .then((message) => {
+//       console.log(message);
+//       throw new Error('An error occurred');
+//     })
+//     .catch((error) => {
+//       console.error(error.message);
+//     });
 
 
 
 
+// fetch('https://dummyjson.com/products/1')
+// .then(res => res.json())
+// .then(json => console.log(json))
 
- 
-
-
-
-
-
+// fetch("https://api.github.com/users/octocat")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     try {
+//       //processing received data
+//       console.log(data);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   })
+//   .catch((error) => console.log(error));
 
