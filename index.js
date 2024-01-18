@@ -250,7 +250,7 @@
 //     });
 // });
 
-// this Keyword
+//**** */ this Keyword
 
 //valure of this keyword in javaScript in a globalscope and localscopewith non strict mode window object or in non strict modev it will be undefined when in local scope
 
@@ -380,4 +380,43 @@
 //     }
 //   })
 //   .catch((error) => console.log(error));
+
+
+// ***lexical scoping and closure in javaScript
+
+//lexical
+// const myFunction = () => {
+//   let myValue = 2;
+//   console.log(myValue);
+
+//   const childFunction = () => {
+//        console.log(myValue += 1);
+//   }
+
+//   childFunction();
+// }
+
+// myFunction();
+
+
+
+
+// //closure
+
+// function outer(){
+// let name="rup"
+//  function inner(){
+
+//   console.log(name);
+//  }
+//   return inner;
+// }
+
+// const x=outer();
+// x();
+
+
+var x={name:""};
+console.log(x);
+
 
