@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Calculator</title>
-    <link  href="index.js">
-    <style>
+    <script src="index.js"></script>
+    <!-- <style>
         body {
             display: flex;
             justify-content: center;
@@ -35,11 +35,16 @@
             font-size: 16px;
             cursor: pointer;
         }
-    </style>
+    </style> -->
 </head>
-<body>
 
-<div id="calculator">
+<body  onscroll="handler">
+    <div>
+        <input type="text" id="input">
+    
+    </div>
+
+<!-- <div id="calculator">
     <input type="text" id="display" readonly>
     <br>
     <button onclick="appendToDisplay('1')">1</button>
@@ -61,25 +66,121 @@
     <button onclick="appendToDisplay('.')">.</button>
     <button onclick="calculate()">=</button>
     <button onclick="clearDisplay()">C</button>
-</div>
+</div> -->
+ <!-- <div class="">
+    <p class="normal">
+  
+
+    </p>
+    <p class="throttle">
+    
+  
+  
+    </p>
+  
+  
+ </div> -->
+
 
 <script>
-    function appendToDisplay(value) {
-        document.getElementById('display').value += value;
+    // function appendToDisplay(value) {
+    //     document.getElementById('display').value += value;
+    // }
+
+    // function clearDisplay() {
+    //     document.getElementById('display').value = '';
+    // }
+
+    // function calculate() {
+    //     try {
+    //         const result = eval(document.getElementById('display').value);
+    //         document.getElementById('display').value = result;
+    //     } catch (error) {
+    //         document.getElementById('display').value = 'Error';
+    //     }
+    // }
+   const  debouncing=(fn,delay)=>{
+    let timer
+   return (...args)=>{
+    clearTimeout(timer)
+    timer=setTimeout(()=>{
+    fn(...args)
+
+    },delay)
+    
+
+   }
+
+   }
+   let count=0;
+   const  throttling=(fn,delay)=>{
+   
+    let inputChange=true
+   
+   return (...args)=>{
+    if(inputChange===true){
+        count++
+    fn(count)
+    inputChange=false
+    setTimeout(()=>{
+    inputChange=true
+
+},delay)
+
+
+
     }
 
-    function clearDisplay() {
-        document.getElementById('display').value = '';
-    }
+   }
 
-    function calculate() {
-        try {
-            const result = eval(document.getElementById('display').value);
-            document.getElementById('display').value = result;
-        } catch (error) {
-            document.getElementById('display').value = 'Error';
-        }
-    }
+   }
+
+  const handler=(e)=>{
+   console.log(e.target.value)
+
+
+  }
+  const tCount=(x)=>{
+   console.log(x)
+
+
+  }
+
+
+
+function handleChange() {
+    debouncing(handler,1000)
+    throttling(tCount,1000)
+    
+}
+
+const input=document.getElementById('input');
+ input.addEventListener('input',handleChange)
+
+// ******throtttle
+
+
+//  const normal=document.querySelector('.normal')
+
+//  const throttle=document.getElementsByClassName('.throttle')
+//  let ncount=0;
+//  let tcount=0;
+//  function nfunction() {
+//     ncount++;
+//   normal.innerHTML='normal:${ncount}'  
+
+//  }
+//  function tfunction() {
+    
+//  }
+ 
+ 
+//  function handler() {  
+//    nfunction();
+//    tfunction()
+//  }
+
+
 </script>
 
 </body>

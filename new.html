@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="container"></div>
+<input type="text" id="input">
+<ul id="list"></ul>
+<script>
+    let input = document.getElementById('input')
+    let list = document.getElementById('list')
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            fetch(`https://dummyjson.com/products`).then((res) => {
+             
+             return res.json();
+             }).then((res) => {
+                 
+                 let arr = res.products;
+ 
+                 list.textContent = "";
+                 for (let i = 0; i < arr.length; i++) {
+                     let item = document.createElement('li');
+                     item.textContent = arr[i].title;
+                     list.appendChild(item);
+                 }
+             }).catch((error) => {
+                 console.log(error);
+             });   
+        }, 1000);
+});
+  
+
+    function handleChange(value) {
+        const val = value
+
+        fetch(`https://dummyjson.com/products/search?q=${val}`).then((res) => {
+             
+             return res.json();
+             }).then((res) => {
+                 
+                 let arr = res.products;
+ 
+                 list.textContent = "";
+                 for (let i = 0; i < arr.length; i++) {
+                     let item = document.createElement('li');
+                     item.textContent = arr[i].title;
+                     list.appendChild(item);
+                 }
+             }).catch((error) => {
+                 console.log(error);
+             });
+    }
+
+    function debounce(fn, delay) {
+        let timer;
+        return function (...args) {
+            console.log(...args);
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                fn(...args);
+            }, delay);
+        };
+    }
+
+    input.addEventListener('input', (e) => {
+        const fn = debounce(handleChange, 5000);
+        fn(e.target.value);
+    });
+</script>
+</body>
+</html>
