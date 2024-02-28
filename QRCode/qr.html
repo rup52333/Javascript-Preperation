@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="qr.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <style>
+        #qrcode {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>QR Code Generator</h1>
+        <p>Paste Your Website Url and generate QR code</p>
+    </header>
+
+    <div class="form">
+        <input type="text" id="urlInput" placeholder="Enter URL">
+        <button onclick="generateQRCode()">Generate QR Code</button>
+    </div>
+
+    <div class="qr-code" id="qrcode"></div>
+
+</div>
+
+<script>
+     document.getElementById("qrcode").style.display = "none";
+    function generateQRCode() {
+        // Get the input URL
+       
+        var url = document.getElementById("urlInput").value;
+
+        // Check if the URL is not empty
+        if (url.trim() !== "") {
+            // Create a QR code instance
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: url,
+                width: 128,
+                height: 128
+            });
+
+            // Show the QR code image
+            document.getElementById("qrcode").style.display = "block";
+            document.getElementById("urlInput").value=""
+        } else {
+            alert("Please enter a valid URL.");
+        }
+    }
+</script>
+
+</body>
+</html>

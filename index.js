@@ -664,6 +664,215 @@
 
 
 
+// const promis=new Promise((resolve,reject)=>[
+// resolve("sucess")
+
+// ])
+
+// promise.then((res)=>{
+// console.log(res);
+
+
+// }).catch((error)=>{
+//   console.log(error);
+// })
+
+
+
+// function wait(time) {
+//    return new Promise((resolve)=>{
+//    setTimeout(() => {
+//     resolve("hi")
+//    }, time);
+
+
+//    })
+  
+// }
+
+
+
+// ************callbackHelll
+
+
+// function fetchDataFromApi(endpoint,cb){
+      
+//   setTimeout(()=>{
+//    const data={res:`${endpoint}`   }   
+//   cb(null,data)
+//   },2000);
+   
+// }
+// function cbHell(){
+
+// fetchDataFromApi('1st',(err1,data1)=>{
+// if(err1){
+//    console.log(err1)
+// }
+// else{
+// console.log(data1.res) ;
+// fetchDataFromApi('2nd',(err2,data2)=>{
+//   if(err2){
+//    console.log(err2)
+// }
+// else{
+//  console.log(data2.res) ;
+//  fetchDataFromApi("3rd",(err3,data3)=>{
+//   if(err3)   {
+//       console.log(err3)
+//   }
+//   else{
+//    console.log(data3.res)   
+      
+//   }
+     
+//  })
+   
+// }
+    
+// })
+   
+// }
+   
+// })
+ 
+// }
+
+// cbHell();
+
+// **********generaor
+// function* randomize(x) {
+
+// while (true) {
+// //  let randomNum=Math.floor(Math.random()*1000)
+//  yield x+8;
+//  yield x+9;
+
+// }
+ 
+// }
+
+// let random=randomize(10);
+// console.log(random.next().value);
+// console.log(random.next().value);
+// console.log(random.next().value);
+// console.log(random.next().value);
+// function fetchData(url){
+    
+//   return new Promise((resolve,reject)=>{
+//    setTimeout(()=>{
+//     resolve(`data fetch sucessfully ${url}`) ;   
+//    },2000)   
+//   })
+//   }
+  
+//   function* fetchDataGenerator(){
+  
+//   const promise1=yield fetchData("A")
+//   console.log(promise1)    
+//   const promise2=yield fetchData("B")
+//   console.log(promise2)    
+//   const promise3=yield fetchData("C")
+//   console.log(promise3)    
+      
+//   }
+//   const iterator = fetchDataGenerator();
+//   const promise = iterator.next().value;
+  
+//   promise.then((data)=>{
+//   iterator.next(data).value.then((data)=>{
+//     iterator.next(data).value.then((data)=>{
+//       iterator.next(data)
+        
+//     })
+      
+//   })
+//   })
+  
+if(!Math.max){
+ const max=function(){
+let res=-Infinity;
+for(let i=0;i<arguments.length;i++)
+{
+if(arguments[i]>res){
+  res=arguments[i]
+}
+}
+return res
+}
+console.log(max([4,6,9,4,3,8,5])); 
+  }
+ 
+ 
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
